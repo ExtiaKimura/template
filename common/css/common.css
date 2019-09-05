@@ -1,0 +1,241 @@
+@charset "utf-8";
+/* ===================================================================
+ common.css
+======================================================================*/
+
+/*----------------------------------------------------------
+ Reset
+------------------------------------------------------------*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp,
+small, strong, sub, sup, var, b, u, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, input, textarea,
+table, caption, tbody, thead, tfoot, tr, th, td,
+main, article, aside, canvas, details, embed, figure, figcaption, footer, header,
+menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.5em;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  word-break: break-all;
+}
+
+h1, h2, h3, h4, h5, h6, th {
+  font-size: 100%;
+  font-family: inherit;
+}
+
+em  { font-style: normal; }
+
+table  {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+table, th, td {
+  text-align: left:
+  border: none;
+}
+
+ul, ol, li  { list-style: none; }
+
+img    {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  vertical-align: top;
+}
+
+input[type=text],
+input[type=password],
+input[type=button],
+input[type=submit],
+button,
+select,
+textarea {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  outline: none;
+  font-size: 100%;
+  color: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  font-weight: normal;
+}
+
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: #ccc;
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: #ccc;
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: #ccc;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+}
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+select::-ms-expand { display:none; }
+
+*, *:before, *:after { box-sizing: border-box; }
+
+/*----------------------------------------------------------
+ Base
+------------------------------------------------------------*/
+html {
+  font-size: 62.5%;
+  overflow-y: scroll;
+}
+
+body {
+  min-width: 320px;
+  font-size: 1.6em;
+  color: #333;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, th, td, small {
+  font-size: 100%;
+}
+
+input, select, textarea {
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
+}
+
+/*----------------------------------------------------------
+ Anchers
+------------------------------------------------------------*/
+a {
+  color: #00f;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+  a:hover {
+    color: #f00;
+    text-decoration: none;
+  }
+  a img { transition: .3s }
+  a:hover img { opacity: .7; }
+}
+
+/*----------------------------------------------------------
+ page
+------------------------------------------------------------*/
+.l_page {
+  
+}
+
+/*----------------------------------------------------------
+ header
+------------------------------------------------------------*/
+.l_header {
+  
+}
+
+/*----------------------------------------------------------
+ main
+------------------------------------------------------------*/
+.l_main {
+  
+}
+
+/*----------------------------------------------------------
+ footer
+------------------------------------------------------------*/
+.l_footer {
+  
+}
+
+.l_footer__btnPagetop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+}
+
+/*----------------------------------------------------------
+ modal
+------------------------------------------------------------*/
+.m_modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.m_modal-outer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,.7);
+}
+
+.m_modal-window {
+  position: relative;
+  width: 85%;
+  max-width: 950px;
+}
+
+.m_modal__btnClose {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 20px;
+  height: 20px;
+  text-indent: -9999px;
+  transition: .3s;
+  cursor: pointer;
+}
+.m_modal__btnClose:hover { opacity: .7; }
+.m_modal__btnClose:before,
+.m_modal__btnClose:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 47%;
+  width: 2px;
+  height: 100%;
+  background: #aaa;
+}
+.m_modal__btnClose:before { transform: rotate(45deg); }
+.m_modal__btnClose:after { transform: rotate(-45deg); }
+
+.m_modal-main {
+  padding: 30px 15px 15px;
+  max-height: 90vh;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, .3);
+  overflow-y: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .m_modal__btnClose {
+    top: 10px;
+    right: 10px;
+  }
+  .m_modal-main {
+    padding: 30px;
+  }
+}
