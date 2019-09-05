@@ -136,16 +136,16 @@
     };
     var proto = constructor.prototype;
     proto.init = function(args) {
-      this.setEl(args);
+      this.setEl(args.el);
       this.setStyle();
       this.setEvents();
       return this;
     };
-    proto.setEl = function(args) {
-      this.$el = $(args.el);
+    proto.setEl = function(el) {
+      this.$el = $(el);
       this.$main = this.$el.find('.m_modal-window');
       this.$triggerClose = this.$el.find('.m_modal__btnClose');
-      this.$triggerOpen = $(args.triggerOpenEl);
+      this.$triggerOpen = $('a[href="#' + this.$el.attr('id') + '"]');
       this.$page = $('#PageView');
       return this;
     };
@@ -210,6 +210,14 @@ $(function() {
     /* ページトップボタン */
     var btnPagetop = new App.ui.btnPagetop();
     btnPagetop.init({ el: '.js_btnPagetop' });
+
+    /* モーダル */
+    if($('.js_modal').length > 0) {
+      $('.js_modal').each(function() {
+        var modalView = new App.views.ModalView();
+        modalView.init({ el: this });
+      });
+    }
 
   };
 
