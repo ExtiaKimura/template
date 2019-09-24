@@ -63,11 +63,9 @@ Utilityクラス（汎用クラス）用
 - App.utils：その他汎用モジュール
 - App.views：オブジェクト（View）
 
-※オブジェクトパターンでは拡張を想定してprototypeパターンを使用
-※ページ固有の指定は別ファイルとして管理  
-  
-参考
+※オブジェクトパターンでは拡張を想定してprototypeパターンを使用  
+※ページ固有の指定は別ファイルとして管理
 ```
-JSモジュール設計
-https://github.com/takahashiakira/tech_for_web/wiki/JS%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E8%A8%AD%E8%A8%88
+参考
+[JSモジュール設計](https://github.com/takahashiakira/tech_for_web/wiki/JS%E3%83%A2%E3%82%B8%E3%83%A5%E3%83%BC%E3%83%AB%E8%A8%AD%E8%A8%88)
 ```
