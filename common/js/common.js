@@ -44,41 +44,6 @@
 
   app.ui = {
 
-    /**
-     * ページトップボタン
-     */
-    btnPagetop: function() {
-      var $el = {};
-      var init = function(args) {
-        setEl(args.el);
-        setStyle();
-        setEvents();
-        return this;
-      };
-      var setEl = function(el) {
-        $el = $(el);
-        return this;
-      };
-      var setStyle = function() {
-        $el.hide();
-        return this;
-      };
-      var setEvents = function() {
-        $(window).on('scroll', function() {
-          animateToggle($(window).scrollTop());
-        });
-        return this;
-      };
-      var animateToggle = function(scrollTop) {
-        if(scrollTop > $(window).outerHeight()) {
-          $el.fadeIn();
-        } else {
-          $el.fadeOut();
-        }
-      };
-      return { init: init };
-    }
-
   };
 
 /*----------------------------------------------------------
@@ -86,34 +51,6 @@
 ------------------------------------------------------------*/
 
   app.utils = {
-
-    /**
-     * スムーススクロール
-     */
-    smoothScroll: function() {
-      var $el = $('a[href^="#"]');
-      var init = function() {
-        setEvents();
-        return this;
-      };
-      var setEvents = function() {
-        $el.on('click', function(e) {
-          e.preventDefault();
-          animateScroll($(this).attr('href'));
-        });
-        return this;
-      };
-      var animateScroll = function(href) {
-        var $target = $(href === '#' || href === '' ? 'html' : href);
-        if($target.length > 0) {
-          var position = $target.offset().top;
-          $('html, body').animate({
-            scrollTop: position
-          }, 500, 'swing');
-        }
-      };
-      init();
-    }
 
   };
 
@@ -205,20 +142,85 @@ $(function() {
   var pageInit = function() {
 
     /* スムーススクロール */
-    App.utils.smoothScroll();
+    smoothScroll();
 
     /* ページトップボタン */
-    var btnPagetop = new App.ui.btnPagetop();
+    var btnPagetop = new triggerPagetop();
     btnPagetop.init({ el: '.js_btnPagetop' });
 
     /* モーダル */
     if($('.js_modal').length > 0) {
       $('.js_modal').each(function() {
-        var modalView = new App.views.ModalView();
-        modalView.init({ el: this });
+        if($(this).attr('id') !== '') {
+          var modalView = new App.views.ModalView();
+          modalView.init({ el: this });
+        }
       });
     }
 
+  };
+
+  /**
+   * スムーススクロール
+   */
+  var smoothScroll = function() {
+    var $el = $('a[href^="#"]');
+    var init = function() {
+      setEvents();
+      return this;
+    };
+    var setEvents = function() {
+      $el.on('click', function(e) {
+        e.preventDefault();
+        animateScroll($(this).attr('href'));
+      });
+      return this;
+    };
+    var animateScroll = function(href) {
+      var $target = $(href === '#' || href === '' ? 'html' : href);
+      if($target.length > 0) {
+        var position = $target.offset().top;
+        $('html, body').animate({
+          scrollTop: position
+        }, 500, 'swing');
+      }
+    };
+    init();
+  };
+
+  /**
+   * ページトップボタン
+   */
+  var triggerPagetop = function() {
+    var $el = {};
+    var init = function(args) {
+      setEl(args.el);
+      setStyle();
+      setEvents();
+      return this;
+    };
+    var setEl = function(el) {
+      $el = $(el);
+      return this;
+    };
+    var setStyle = function() {
+      $el.hide();
+      return this;
+    };
+    var setEvents = function() {
+      $(window).on('scroll', function() {
+        animateToggle($(window).scrollTop());
+      });
+      return this;
+    };
+    var animateToggle = function(scrollTop) {
+      if(scrollTop > $(window).outerHeight()) {
+        $el.fadeIn();
+      } else {
+        $el.fadeOut();
+      }
+    };
+    return { init: init };
   };
 
   /* 初期処理 */
