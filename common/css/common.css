@@ -140,32 +140,32 @@ a {
 /*----------------------------------------------------------
  page
 ------------------------------------------------------------*/
-.l_page {
+.f_page {
   
 }
 
 /*----------------------------------------------------------
  header
 ------------------------------------------------------------*/
-.l_header {
+.f_header {
   
 }
 
 /*----------------------------------------------------------
  main
 ------------------------------------------------------------*/
-.l_main {
+.f_main {
   
 }
 
 /*----------------------------------------------------------
  footer
 ------------------------------------------------------------*/
-.l_footer {
+.f_footer {
   /* padding-bottom: env(safe-area-inset-bottom); */
 }
 
-.l_footer__btnPagetop {
+.f_footer-btnPagetop {
   position: fixed;
   bottom: 30px;
   right: 30px;
@@ -199,7 +199,7 @@ a {
   max-width: 950px;
 }
 
-.m_modal__btnClose {
+.m_modal-btnClose {
   position: absolute;
   top: 5px;
   right: 5px;
@@ -209,9 +209,9 @@ a {
   transition: .3s;
   cursor: pointer;
 }
-.m_modal__btnClose:hover { opacity: .7; }
-.m_modal__btnClose:before,
-.m_modal__btnClose:after {
+.m_modal-btnClose:hover { opacity: .7; }
+.m_modal-btnClose:before,
+.m_modal-btnClose:after {
   content: "";
   display: block;
   position: absolute;
@@ -221,8 +221,8 @@ a {
   height: 100%;
   background: #aaa;
 }
-.m_modal__btnClose:before { transform: rotate(45deg); }
-.m_modal__btnClose:after { transform: rotate(-45deg); }
+.m_modal-btnClose:before { transform: rotate(45deg); }
+.m_modal-btnClose:after { transform: rotate(-45deg); }
 
 .m_modal-main {
   padding: 30px 15px 15px;
@@ -234,7 +234,7 @@ a {
 }
 
 @media screen and (min-width: 768px) {
-  .m_modal__btnClose {
+  .m_modal-btnClose {
     top: 10px;
     right: 10px;
   }
