@@ -20,7 +20,7 @@
 ------------------------------------------------------------*/
   app.global = {
 
-    breakpoint: 767 // ブレイクポイント
+    breakpoint: 767 // 基本ブレイクポイント
 
   };
 
@@ -32,8 +32,9 @@
     /**
      * スマホ判定
      */
-    isMediaSp: function() {
-      return ($(window).width() > app.global.breakpoint) ? false : true;
+    isMediaSp: function(point) {
+      var breakpoint = point !== undefined ? point : app.global.breakpoint;
+      return ($(window).width() > breakpoint) ? false : true;
     }
 
   };
@@ -42,6 +43,51 @@
  ui
 ------------------------------------------------------------*/
   app.ui = {
+
+    /**
+     * アコーディオン
+     */
+    accordion: (function() {
+      var constructor = function() {
+        this.$el = {};
+        this.$trigger = {};
+        this.$target = {};
+        this.classOpened = 's_opened';
+        return this;
+      };
+      var proto = constructor.prototype;
+      proto.init = function(args) {
+        this.setEl(args.el);
+        this.setStyle();
+        this.setEvents();
+        return this;
+      };
+      proto.setEl = function(el) {
+        this.$el = $(el);
+        this.$trigger = this.$el.find('.js_accordion-trigger');
+        this.$target = this.$el.find('.js_accordion-target');
+        return this;
+      };
+      proto.setStyle = function() {
+        this.$trigger.removeClass(this.classOpened);
+        this.$target.hide();
+        return this;
+      };
+      proto.setEvents = function() {
+        var that = this;
+        this.$trigger.on('click', function(e) {
+          e.preventDefault();
+          that.onClickTrigger(this);
+        });
+        return this;
+      };
+      proto.onClickTrigger = function(trigger) {
+        this.$trigger.toggleClass(this.classOpened);
+        this.$target.slideToggle();
+        return this;
+      };
+      return constructor;
+    })()
 
   };
 
@@ -79,7 +125,7 @@
     proto.setEl = function(el) {
       this.$el = $(el);
       this.$main = this.$el.find('.m_modal-window');
-      this.$triggerClose = this.$el.find('.m_modal__btnClose');
+      this.$triggerClose = this.$el.find('.m_modal-btnClose');
       this.$triggerOpen = $('a[href="#' + this.$el.attr('id') + '"]');
       this.$page = $('#PageView');
       return this;
@@ -163,6 +209,8 @@ $(function() {
    */
   var smoothScroll = function() {
     var $el = $('a[href^="#"]');
+    var adjustHeight = 0;
+    var classExclusion = 'js_smoothScrollExclusion'; // スムーススクロール対象外
     var init = function() {
       setEvents();
       return this;
@@ -170,7 +218,9 @@ $(function() {
     var setEvents = function() {
       $el.on('click', function(e) {
         e.preventDefault();
-        animateScroll($(this).attr('href'));
+        if(!$(this).hasClass(classExclusion)) {
+          animateScroll($(this).attr('href'));
+        }
       });
       return this;
     };
@@ -179,7 +229,7 @@ $(function() {
       if($target.length > 0) {
         var position = $target.offset().top;
         $('html, body').animate({
-          scrollTop: position
+          scrollTop: position - adjustHeight
         }, 500, 'swing');
       }
     };

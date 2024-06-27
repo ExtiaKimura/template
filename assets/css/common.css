@@ -1,6 +1,7 @@
 @charset "utf-8";
 /* ===================================================================
  common.css
+  - breakpoint: max-width: 767px / min-width: 768px
 ======================================================================*/
 
 /*----------------------------------------------------------
@@ -22,33 +23,30 @@ menu, nav, output, ruby, section, summary, time, mark, audio, video {
   -webkit-text-size-adjust: 100%;
   word-break: break-all;
 }
-
 h1, h2, h3, h4, h5, h6, th {
   font-size: 100%;
   font-family: inherit;
 }
-
-em  { font-style: normal; }
-
-table  {
+em  {
+  font-style: normal;
+}
+table {
   border-spacing: 0;
   border-collapse: collapse;
 }
-
 table, th, td {
   text-align: left;
   border: none;
 }
-
-ul, ol, li  { list-style: none; }
-
-img    {
+ul, ol, li {
+  list-style: none;
+}
+img {
   max-width: 100%;
   height: auto;
   border: 0;
   vertical-align: top;
 }
-
 input[type=text],
 input[type=password],
 input[type=button],
@@ -66,7 +64,6 @@ textarea {
   font-family: inherit;
   font-weight: normal;
 }
-
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
   color: #ccc;
@@ -79,7 +76,6 @@ input::-moz-placeholder,
 textarea::-moz-placeholder {
   color: #ccc;
 }
-
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -90,10 +86,12 @@ button {
   outline: none;
   cursor: pointer;
 }
-
-select::-ms-expand { display:none; }
-
-*, *:before, *:after { box-sizing: border-box; }
+select::-ms-expand {
+  display:none;
+}
+*, *:before, *:after {
+  box-sizing: border-box;
+}
 
 /*----------------------------------------------------------
  Base
@@ -102,18 +100,15 @@ html {
   font-size: 62.5%;
   overflow-y: scroll;
 }
-
 body {
   min-width: 320px;
   font-size: 1.6em;
   color: #333;
   font-family: 'Noto Sans JP', sans-serif;
 }
-
 h1, h2, h3, h4, h5, h6, th, td, small {
   font-size: 100%;
 }
-
 input, select, textarea {
   font-size: inherit;
   font-weight: inherit;
@@ -126,15 +121,16 @@ input, select, textarea {
 a {
   color: #00f;
   text-decoration: underline;
+  transition: .3s;
 }
 
 @media screen and (min-width: 768px) {
   a:hover {
     color: #f00;
     text-decoration: none;
+    opacity: .7;
   }
-  a img { transition: .3s }
-  a:hover img { opacity: .7; }
+  a img { transition: .3s; }
 }
 
 /*----------------------------------------------------------
@@ -164,7 +160,6 @@ a {
 .f_footer {
   /* padding-bottom: env(safe-area-inset-bottom); */
 }
-
 .f_footer-btnPagetop {
   position: fixed;
   bottom: 30px;
@@ -183,7 +178,6 @@ a {
   width: 100%;
   height: 100%;
 }
-
 .m_modal-outer {
   display: flex;
   align-items: center;
@@ -192,13 +186,11 @@ a {
   height: 100%;
   background: rgba(0,0,0,.7);
 }
-
 .m_modal-window {
   position: relative;
   width: 85%;
   max-width: 950px;
 }
-
 .m_modal-btnClose {
   position: absolute;
   top: 5px;
@@ -241,4 +233,14 @@ a {
   .m_modal-main {
     padding: 30px;
   }
+}
+
+/* ===================================================================
+ utilityClass.css
+======================================================================*/
+@media screen and (max-width: 767px) {
+  .c_show-pc { display: none !important; }
+}
+@media screen and (min-width: 768px) {
+  .c_show-sp { display: none !important; }
 }

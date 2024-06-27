@@ -4,42 +4,19 @@
 ======================================================================*/
 
 /*----------------------------------------------------------
- show
-------------------------------------------------------------*/
-@media screen and (max-width: 767px) {
-  .c_show-pc { display: none !important; }
-}
-@media screen and (min-width: 768px) {
-  .c_show-sp { display: none !important; }
-}
-
-/*----------------------------------------------------------
  display
 ------------------------------------------------------------*/
 .c_dn { display: none !important; }
 .c_db { display: block !important; }
 .c_di { display: inline !important; }
+.c_dib { display: inline-block !important; }
+.c_df { display: flex !important; }
 
 /*----------------------------------------------------------
  overflow
 ------------------------------------------------------------*/
 .c_oh { overflow: hidden !important; }
 .c_ov { overflow: visible !important; }
-
-/*----------------------------------------------------------
- float
-------------------------------------------------------------*/
-.c_fl { float: left !important; }
-.c_fr { float: right !important; }
-.c_fn { float: none !important; }
-
-/*----------------------------------------------------------
- clear
-------------------------------------------------------------*/
-.c_cb { clear: both !important; }
-.c_cl { clear: left !important; }
-.c_cr { clear: right !important; }
-.c_cn { clear: none !important; }
 
 /*----------------------------------------------------------
  width
@@ -69,12 +46,29 @@
 .c_w900 { width: 900px !important; }
 .c_w950 { width: 950px !important; }
 
+/* max-width
+--------------------------------------------------*/
+.c_mwNone { max-width: none !important; }
+
+.c_mw100p { max-width: 100% !important; }
+.c_mw90p  { max-width: 90% !important; }
+.c_mw80p  { max-width: 80% !important; }
+.c_mw70p  { max-width: 70% !important; }
+.c_mw60p  { max-width: 60% !important; }
+.c_mw50p  { max-width: 50% !important; }
+.c_mw40p  { max-width: 40% !important; }
+.c_mw30p  { max-width: 30% !important; }
+.c_mw20p  { max-width: 20% !important; }
+.c_mw10p  { max-width: 10% !important; }
+
 /*----------------------------------------------------------
  margin
 ------------------------------------------------------------*/
 
 /* top
 --------------------------------------------------*/
+.c_mt1em { margin-top: 1em !important; }
+
 .c_mt0  { margin-top: 0px !important; }
 .c_mt5  { margin-top: 5px !important; }
 .c_mt10 { margin-top: 10px !important; }
@@ -129,70 +123,30 @@
 .c_mb45 { margin-bottom: 45px !important; }
 .c_mb50 { margin-bottom: 50px !important; }
 
+/* horizontal
+--------------------------------------------------*/
 .c_mhA  {
   margin-left: auto !important;
   margin-right: auto !important;
 }
 
+/* vertical
+--------------------------------------------------*/
+.c_mv0  {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
 /*----------------------------------------------------------
- float
+ layout
 ------------------------------------------------------------*/
+.c_textLeft   { text-align: left !important; }
+.c_textCenter { text-align: center !important; }
+.c_textRight  { text-align: right !important; }
 
-/* top
---------------------------------------------------*/
-.c_pt0  { padding-top: 0px !important; }
-.c_pt5  { padding-top: 5px !important; }
-.c_pt10 { padding-top: 10px !important; }
-.c_pt15 { padding-top: 15px !important; }
-.c_pt20 { padding-top: 20px !important; }
-.c_pt25 { padding-top: 25px !important; }
-.c_pt30 { padding-top: 30px !important; }
-.c_pt35 { padding-top: 35px !important; }
-.c_pt40 { padding-top: 40px !important; }
-.c_pt45 { padding-top: 45px !important; }
-.c_pt50 { padding-top: 50px !important; }
-
-/* left
---------------------------------------------------*/
-.c_pl0  { padding-left: 0px !important; }
-.c_pl5  { padding-left: 5px !important; }
-.c_pl10 { padding-left: 10px !important; }
-.c_pl15 { padding-left: 15px !important; }
-.c_pl20 { padding-left: 20px !important; }
-.c_pl25 { padding-left: 25px !important; }
-.c_pl30 { padding-left: 30px !important; }
-.c_pl35 { padding-left: 35px !important; }
-.c_pl40 { padding-left: 40px !important; }
-.c_pl45 { padding-left: 45px !important; }
-.c_pl50 { padding-left: 50px !important; }
-
-/* right
---------------------------------------------------*/
-.c_pr0  { padding-right: 0px !important; }
-.c_pr5  { padding-right: 5px !important; }
-.c_pr10 { padding-right: 10px !important; }
-.c_pr15 { padding-right: 15px !important; }
-.c_pr20 { padding-right: 20px !important; }
-.c_pr25 { padding-right: 25px !important; }
-.c_pr30 { padding-right: 30px !important; }
-.c_pr35 { padding-right: 35px !important; }
-.c_pr40 { padding-right: 40px !important; }
-.c_pr45 { padding-right: 45px !important; }
-.c_pr50 { padding-right: 50px !important; }
-
-/* bottom
---------------------------------------------------*/
-.c_pb0  { padding-bottom: 0px !important; }
-.c_pb5  { padding-bottom: 5px !important; }
-.c_pb10 { padding-bottom: 10px !important; }
-.c_pb15 { padding-bottom: 15px !important; }
-.c_pb20 { padding-bottom: 20px !important; }
-.c_pb25 { padding-bottom: 25px !important; }
-.c_pb30 { padding-bottom: 30px !important; }
-.c_pb35 { padding-bottom: 35px !important; }
-.c_pb40 { padding-bottom: 40px !important; }
-.c_pb45 { padding-bottom: 45px !important; }
-.c_pb50 { padding-bottom: 50px !important; }
+.c_alignStart  { align-items: flex-start !important; }
+.c_alignCenter { align-items: center !important; }
+.c_alignEnd    { align-items: flex-end !important; }
 
 /*----------------------------------------------------------
  font
@@ -204,9 +158,5 @@
 .c_fs12 { font-size: 1.2rem !important; }
 .c_fs10 { font-size: 1rem !important; }
 
-.c_al  { text-align: left !important; }
-.c_ac  { text-align: center !important; }
-.c_ar  { text-align: right !important; }
-
-.c_bold   { font-weight: bold !important; }
-.c_normal { font-weight: normal !important; }
+.c_fontBold   { font-weight: bold !important; }
+.c_fontNormal { font-weight: normal !important; }
